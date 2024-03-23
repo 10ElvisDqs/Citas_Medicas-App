@@ -30,16 +30,13 @@ export class SidebarComponent {
   ) {
     //this.user=this.authService.user;
     let USER= localStorage.getItem("user");
-
     this.user=JSON.parse(USER ? USER : '');
-    console.log(this.user);
-    console.log(this.user.roles);
-    console.log(this.user.roles.includes("Super-Admin"));
     //INICIO
-    // if (this.user && this.user.roles && this.user.roles.includes("Super-Admin")) {
-    if (this.user && this.user.roles && this.user.roles.includes("Super-Admin")) {
-      console.log('ingreso el Super-Admin');
+    if (this.user && this.user.roles.includes("Super-Admin")) {
+
+      console.log('ingreso al super admin');
       this.sidebarData = this.data.sideBar;
+      console.log(this.sidebarData);
     }else{
       //VAMOS A FILTRAR Y VALIDAR QUE OPCIONES PUEDE VER ESE ROL
       let permissions=this.user.permissions;
